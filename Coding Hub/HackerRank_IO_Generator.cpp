@@ -37,8 +37,6 @@ void exePgrm(){
         ofstream fout(output[qq]);
         //Put program here
     }
-
-
 }
 int main(){
     genInput();
