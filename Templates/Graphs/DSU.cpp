@@ -1,5 +1,7 @@
 // https://judge.yosupo.jp/problem/unionfind
 
+// find_set and union_sets are O(alpha(n)) = O(1) 
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -19,7 +21,7 @@ int find_set(int v) {//finds the parent (representative) of a set
 void union_sets(int a, int b) {
     a = find_set(a); b = find_set(b);
     if (a != b) {
-        if (size[a] < size[b])
+        if (size[a] < size[b]) // merge by size
             swap(a, b);
         parent[b] = a;
         size[a] += size[b];
