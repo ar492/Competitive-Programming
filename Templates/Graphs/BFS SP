@@ -16,7 +16,7 @@ int main(){
 	}
 	queue<int> q;
 	q.push(1); // need to get to n
-  vis[1]=1;
+        vis[1]=1;
 	while(!q.empty()){
 		int x=q.front();
 		q.pop();
