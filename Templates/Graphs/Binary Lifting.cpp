@@ -53,4 +53,4 @@ int main(){
 //the goal is to find LCA(a,b) fast
 //the kth ancestor of node u can be found in logn time with binary lifting
 //using binary search for LCA, LCA(a, b) can be found in logn * logn time
-//but faster way is using 'up'
+//but faster way is using 'up', yielding logn lca
