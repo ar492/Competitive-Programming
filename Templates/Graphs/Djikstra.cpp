@@ -9,7 +9,7 @@ using set, deletions and insertions can be performed, but with pq, deletions are
 
 #include <bits/stdc++.h>
 using namespace std;
-using ll=long long;
+#define int long long
 #define INF 1e15
 const int sz = 1e5 + 1;
 int n, m;
@@ -28,16 +28,14 @@ void input() {
 void djikstra() {
     fill(d, d + sz, INF); // SP from 1 to all other is INF for now
     d[1] = 0; // SP from 1 to 1 is 0
-    using T = pair<ll,ll>; priority_queue<T,vector<T>,greater<T>> bank; //min heap <SP length, node#>
+    using T = pair<int, int>; priority_queue<T,vector<T>,greater<T>> bank; //min heap <SP length, node#>
     for(int i = 1; i <= n; i++)
         bank.push(make_pair(d[i], i));
     while(!bank.empty()) {
-        ll dist = bank.top().first;
+        int dist = bank.top().first;
         int node = bank.top().second;
         bank.pop();
-        if(d[node] != dist) continue; //since erasing doesn't happen during relaxation,
-        // .. need to erase non-updated(old) values stuck in the pq
-        //relaxation
+        if(d[node] != dist) continue;
         for(auto i : adj[node]){
             int dest = i.first; //destination
             int w = i.second; //weight
@@ -47,7 +45,7 @@ void djikstra() {
     }
 }
 
-int main() {
+signed main() {
     input();
     djikstra();
     for(int i = 1; i <= n; i++)
