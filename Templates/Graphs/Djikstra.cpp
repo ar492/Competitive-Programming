@@ -14,7 +14,7 @@ using namespace std;
 const int sz = 1e5 + 1;
 int n, m;
 vector<pair<int, int>> adj[sz]; // dest, weight
-ll d[sz]; // d[i] is SP length from node 1 to i
+int d[sz]; // d[i] is SP length from node 1 to i
 
 void input() {
     cin >> n >> m;
