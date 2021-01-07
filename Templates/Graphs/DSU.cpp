@@ -36,8 +36,8 @@ int main(){
     for(int i=0; i<q; i++){
         bool pr; int u,v; //pr = print
         cin>>pr>>u>>v;
-        if(!pr) union_sets(u, v);
-        else cout<<(find_set(u)==find_set(v))<<endl;
+        if(!pr) unite(u, v);
+        else cout<<(rep(u)==rep(v))<<endl;
     }
 return 0;
 }
