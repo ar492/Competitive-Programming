@@ -12,7 +12,7 @@ void update(int i, ll v) {
     for (; i<=n; i+=i&(-i)) bit[i]+=v;
 }
  
-ll sum(int i) {
+ll sum(int i) { // i is one indexed
     ll sum = 0;
     for(; i>0; i-=i&(-i)) sum += bit[i];
     return sum;
