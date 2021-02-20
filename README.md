@@ -1,1 +1,1 @@
-My miscellaneous competitive programming solutions and more
+My miscellaneous competitive programming solutions, templates and more
