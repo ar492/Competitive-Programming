@@ -5,7 +5,7 @@ const int sz=4004002;
 namespace DSU{
        int par[sz], size[sz];
        void initialize(){ for(int i=0; i<sz; i++) par[i]=i, size[i]=1; }
-       int rep(int v){//finds the representative of a set
+       int rep(int v){//finds the representative of a union
               return(v==par[v] ? v : par[v]=rep(par[v]));
        }
        void unite(int a, int b){
