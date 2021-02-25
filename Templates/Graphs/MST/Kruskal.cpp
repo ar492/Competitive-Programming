@@ -11,7 +11,7 @@ int n,m, cmps;
 namespace DSU{
        int par[sz], size[sz];
        void initialize(){ for(int i=0; i<n; i++) par[i]=i, size[i]=1; }
-       int rep(int v){//finds the parent (representative) of a set
+       int rep(int v){//finds the representative of a union
               if (v==par[v]) return v;
               return par[v]=rep(par[v]);
        }
