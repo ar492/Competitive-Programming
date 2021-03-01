@@ -8,13 +8,14 @@ const int mod=1e9+7;
 
 int expo(int a, int b){
         if(a==0 && b==0) return 1;
+	else if(a==0) return 0;
         int m=1, ans=1;
         while(b>0){
               m*=(m==1 ? a : m);    m%=mod;
               if(b&1) ans*=m;       ans%=mod;
               b/=2;
         }
-        return(a ? ans : 0);
+        return ans;
 }
 
 signed main(){
