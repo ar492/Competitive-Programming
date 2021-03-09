@@ -11,7 +11,7 @@ using namespace std;
 #define time timee
 #define __________________________________________________________________________________________________ cin.tie(0)->sync_with_stdio(0);
 int n, q;
-const int sz = 2e5, maxe = 25; //maxe = max exponent
+const int sz = 1e5+4, maxe = 25; //maxe = max exponent
 vector<int> adj[sz];
 int vals[sz];
 
@@ -28,8 +28,7 @@ namespace ETT{
        void dfs(int node, int p=0, int XOR=0){
               XOR^=vals[node];
               int start=time++;
-              e[time]={node, -1, XOR};
-              ind[node]=time;
+              e[ind[node]=time]={node, -1, XOR};
               for(int i:adj[node]) if(i!=p) dfs(i, node, XOR);
               e[ind[node]].size=time-start;
        }
@@ -79,16 +78,17 @@ signed main(){__________________________________________________________________
               int u, v; cin >> u >> v;
               adj[u].emplace_back(v); adj[v].emplace_back(u);
        }
-       setupLCA();
-       setupEuler();
+       setupLCA(); // nlogn
+       setupEuler(); // ~ Cn where C is a constant >2
        while(q--){
               int type, i, j; cin>>type>>i>>j;
-              if(type==2)
+              if(type==2) // O(1)
                      cout<<( (e[ind[i]].XOR^pxor(ind[i])) ^ (e[ind[j]].XOR^pxor(ind[j])) ^ (vals[lca(i, j)]) )<<endl;
-              else{
+              else{ // O(logn)
                      update(ind[i], j, vals[i]);
                      update(ind[i]+e[ind[i]].size, j, vals[i]);
                      vals[i]=j;
               }
        }
+       // total is large constant * O( (n+q)(logn) + n )
 }
