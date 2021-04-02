@@ -1,4 +1,7 @@
 // https://cses.fi/problemset/task/1680/
+// sweep left to right on the topo sort to find dp[i] for all nodes i, which is the max path len ending at i, 
+// also keep where the node is visited from for path recovery
+
 #ifdef LOCAL
 #include			<C:\\Users\\gbpol\\Desktop\\Useful\\cp.h>
 #else
