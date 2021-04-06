@@ -1,36 +1,32 @@
 // https://cses.fi/problemset/task/1648/
 #include <bits/stdc++.h>
 using namespace std;
- 
-using ll = long long;
-const int MX = 2e5+5;
- 
+#define int long long
+
+const int sz = 2e5 + 5;
+
 int n, q;
-vector<ll> bit(MX), x(MX);
- 
-void update(int i, ll v) {
-    for (; i<=n; i+=i&(-i)) bit[i]+=v;
-}
- 
-ll sum(int i) { // i is one indexed
-    ll sum = 0;
-    for(; i>0; i-=i&(-i)) sum += bit[i];
-    return sum;
-}
- 
-int main() {
-    cin >> n >> q;
-    for(int i=1; i<=n; i++) {
-        cin >> x[i];
-        update(i, x[i]);
-    }
-    for(int i=1; i<=q; i++) {
-        int t,a,b; cin >> t >> a >> b;
-        if (t==1) {
-            update(a, -x[a]); // remove its current value
-            x[a]=b; update(a, x[a]); // add its new value
-        } else {
-            cout << query(b)-query(a-1) << "\n";
-        }
-    }
+int x[sz];
+
+namespace BIT{
+       int bit[sz];
+       int psum(int x, int sum=0){ for(; x>0; x-=x&-x) sum+=bit[x]; return sum; } // prefix sum
+       int sum(int a, int b){ return(psum(b)-psum(a-1)); } // inclusive, sum of range
+       void add(int x, int val){ for(; x<sz; x+=x&-x) bit[x]+=val; }
+       void change(int x, int val){ add(x, val-(psum(x)-psum(x-1))); }
+}using namespace BIT;
+
+signed main() {
+       cin >> n >> q;
+       for(int i = 1; i <= n; i++) cin >> x[i], add(i, x[i]);
+
+       for(int i = 1; i <= q; i++) {
+              int t, a, b; cin >> t >> a >> b;
+              if (t == 1) {
+                     add(a, -x[a]); // remove its current value
+                     x[a] = b;
+                     add(a, x[a]); // add its new value
+              }
+              else cout << psum(b) - psum(a - 1) << "\n";
+       }
 }
