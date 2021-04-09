@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>United Cows of Farmer John</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                extensions: ["tex2jax.js"],
+                jax: ["input/TeX", "output/HTML-CSS"],
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true
+                },
+                "HTML-CSS": { fonts: ["TeX"] }
+            });
+        </script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script type="text/javascript" src="https://blueimp.github.io/JavaScript-MD5/js/md5.js"></script>
+
+	   
+   <style>
+	body {
+ 	 font-family: Times New Roman;
+	}
+   </style>
+    </head>
+    <body>
+        <div class="container-fluid";>
+            <p></p>
+
+
+	    <h3>Gold</h3>
+            <p>The problem asks to find the number of subarrays in an array $\texttt{cows}$ such that the left and right values of the subarray occur exactly once in the subarray. </p>
+
+            <p>Let #subarrays with left value repeated $=A$ and #subarrays with right value repeated $=B$.
+		If we complementary count, the answer is $n(n-1)/2 - (A+B-A\cup B)$</p>
+
+            <p>The first two quantities of the complement are straightforward to find, but the third is trickier. For now we focus on computing $\text{A}$,
+		as we can do some modifications to the setup and repeat the same procedure to get $\text{B}$.</p>
+
+	    <p>
+		We can go through $\texttt{cows}$ and increment $\text{A}$ for each index $i$, letting $i$ be the left position of the subarrays we count.
+		If $j$ is the next occurrence of $\texttt{cows[i]}$ (if there is no next occurrence let $j=n+1$), we increment $\text{A}$ by $n-j+1$ because
+                we are counting all subarrays with right end in the range $[j, n]$. Now to find $\text{B}$ we reverse $\texttt{cows}$ and do the same process.
+
+	    </p>
+
+	    <p>
+		$A \cup B$ can be computed simultaneously with $\text{A}$. We can precompute the closest index with the same value to the right $\texttt{cr}$ and left $\texttt{cl}$ for all
+	        indices. If either $\texttt{cr[i]}$ or $\texttt{cl[i]}$ do not exist, let it be $0$. Then for index $i$, if $j=\texttt{cr[i]}$, we are looking for the number of $k \geq j$ such that $\texttt{cl[k]} \geq i$.
+                We subtract that from the current $A$. For example,
+		$$\texttt{cows=[1, 2, 3, 4, 2, 3, 5]}$$ If $i=2$, we first find the raw addition which is $3$. Then we count the number of $k \geq 5$ such that $\texttt{cl[k]} \geq 2$, which is $2$.
+		This can be done with a fenwick tree, with the condition of $\texttt{cl[k]} \geq i$ being maintained with a mapping from $\texttt{cl[k]}$ to $k$. Whenever $\texttt{cl[k]} < i$
+		we remove $k$ from the fenwick tree. Time and space complexity is $O(n\log{n})$.
+
+ 	    </p>
+	</div>
+
+
+    </body>
+</html>
