@@ -5,8 +5,9 @@
 #endif
 #define 			int long long
 #define 			_ cin.tie(0)->sync_with_stdio(0);cin.exceptions(ios_base::failbit);
+#define 			endl "\n"
 using namespace std;
 
 signed main(){_
-	
+
 }
