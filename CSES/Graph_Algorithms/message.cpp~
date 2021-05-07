@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> adj[(int)1e5+1];
+int from[(int)1e5+1], d[(int)1e5+1];
+
+int main(){
+
+	int n,m; cin>>n>>m;
+	for(int i=0; i<m; i++){
+		int u,v; cin>>u>>v;
+		adj[u].push_back(v);
+		adj[v].push_back(u);
+	}
+	
+	queue<int> q;
+	q.push(1); // need to get to n
+	bool stop=false;
+	while(!q.empty() && !stop){
+		int x=q.front();
+		q.pop();
+		for(auto i:adj[x]){
+			if(i==from[x]) continue;
+			from[i]=x;
+			d[i]=d[x]+1;
+			if(i==n){ stop=true; break; }
+			q.push(i);
+		}
+	}
+	cout<<"len is "<<d[n]<<endl;
+	if(from[n]==0){
+		cout<<"IMPOSSIBLE"<<endl;
+		return 0;
+	}
+	int i=n;
+	deque<int> ans;
+	while(i!=1){
+		i=from[i];
+		ans.push_back(i);
+	}
+	reverse(ans.begin(), ans.end());
+	ans.push_back(n);
+	cout<<ans.size()<<endl;
+	for(int i:ans){
+		cout<<i<<endl;
+	}
+
+	return 0;
+}

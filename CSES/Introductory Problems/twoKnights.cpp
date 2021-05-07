@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+#define pb push_back
+#define ff first
+#define ss second
+#define INF (int)1e9
+#define MOD (int)(1e9+7)
+#define endl "\n"
+typedef long long ll;
+using namespace std;
+
+int main(){
+    cin.tie(0)->sync_with_stdio(0);
+    ll n=0; cin>>n;
+    for(ll i=1; i<=n; i++){
+        cout<<(i-1)*(i+4)*(i*i-3*i+4)/2<<endl;
+    }
+return 0;
+}
