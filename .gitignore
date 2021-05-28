@@ -3,6 +3,7 @@
 *.o
 *.cpp.un~
 *.cpp~
+*.un~
 *.bin
 *.cph
 *.vscode
