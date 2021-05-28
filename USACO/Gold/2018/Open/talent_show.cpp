@@ -17,7 +17,7 @@ const int inf=2e9;
 int n,w;
 
 signed main(){
-       ifstream cin("talent.in"); ofstream cout("talent.out");
+    //   ifstream cin("talent.in"); ofstream cout("talent.out");
        cin>>n>>w;
        pair<int, int> cows[n];
        for(int i=0; i<n; i++) cin>>cows[i].w>>cows[i].t;
