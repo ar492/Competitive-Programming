@@ -21,6 +21,10 @@
 #include <cassert>
 #include <numeric>
 
+#include <stdio.h>
+#include <time.h>
+#include <random>
+
 #define what(x) cout <<"              LINE "<<__LINE__<<"|>> "<<#x << " = " << (x)<<endl
 #define what2(x, y) cout <<"              LINE "<<__LINE__<<"|>> ("<<#x <<", "<<#y<< ") = (" << (x)<<", "<<(y)<<")"<<endl
 #define what3(x, y, z) cout <<"              LINE "<<__LINE__<<"|>> ("<<#x <<", "<<#y<< ", "<<#z<<") = (" << (x)<<", "<<(y)<<", "<<(z)<<")"<<endl
