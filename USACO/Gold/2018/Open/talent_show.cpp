@@ -1,10 +1,8 @@
 /*
 
-more simple than official sol - correct as well (not ac because weak tests)
-want to maximize t/w while having a bare minimum total w
-knapsack - same spirit as subset sum
+incorrect sol .. but passes all cases. 
 knapsack on the talents - store min weight to make a talent sum of i (to maximize t/w)
-O(n* 250*1e3) -> for maxn ~ 6e7 operations
+
 
 */
 

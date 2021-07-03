@@ -4,10 +4,17 @@
 #define int long long
 using namespace std;
 
-const int mod=1e9+7;
+const int m=1e9+7;
 
 int expo(int a, int b){
-       return(b<=1?(b==1?a:1):((b&1?a:1)*expo((a*a)%mod,b/2))%mod);
+	if(a==0) return b==0;
+	int ans=1;
+	while(b){
+		if(b&1) ans=(ans*a)%m;
+		b>>=1LL;
+		a=(a*a)%m;
+	}
+	return ans;
 }
 
 signed main(){

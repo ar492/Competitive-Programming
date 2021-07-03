@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+#define pb push_back
+typedef long long ll;
+using namespace std;
+
+int main(){
+int t; cin>>t;
+cout<<"t is "<<t<<endl;
+for(int i=0; i<t; i++){
+    double n;
+    cin>>n;
+    cout<<(180.0*(n-2.0)/n)<<" is "<<endl;
+    if((int)(180.0*(n-2.0)/n)%90==0){cout<<"YES"<<endl;}
+
+    ///cout<<90%((int)(180-(double)(180.0)*(n-2)/n))<<endl;
+    ///if(90%((int)(180-(double)((180.0)*(n-2)/n))==0)){cout<<"YES"<<endl;}
+   /// else{cout<<"NO"<<endl;}
+}
+return 0;
+}

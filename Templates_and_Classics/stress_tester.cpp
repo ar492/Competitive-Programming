@@ -1,6 +1,7 @@
 using namespace std;
 #ifdef LOCAL
-#include<cp.h>
+#include<C:\Users\gbpol\Desktop\Useful\Competitive-Programming\Util\cp.h>
+//#include<C:\Users\gbpol\Desktop\Useful\Competitive-Programming\Util\generator.h>
 #else
 #include<bits/extc++.h>
 template<typename T>ostream&operator<<(ostream&os,const vector<T>&v)
@@ -15,11 +16,11 @@ template<typename T>ostream&operator<<(ostream&os,const vector<T>&v)
 
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-int rnd(int l, int r){
-    return uniform_int_distribution<int>(l, r)(rng);
+int rand(int l, int r){
+       return uniform_int_distribution<int>(l, r)(rng);
 }
 
-int32_t main(){_
+signed main(){_
        int T=0;
        while (1){
               cout << "testing " << (T++) << endl;
@@ -34,8 +35,8 @@ int32_t main(){_
               ifstream in1("out1.txt"), in2("out2.txt");
               bool bad=0;
 
-              //insert checker here
-
+              
+              if(!file_cmp("out1.txt", "out2.txt")) bad=true;
               in1.close(); in2.close();
 
               if (bad){
