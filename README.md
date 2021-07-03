@@ -2,4 +2,4 @@ My miscellaneous competitive programming solutions, templates, generators, and m
 
 Generator signatures:
 
-<img src="generator_signatures.PNG"/>
+<img src="generator_signatures.PNG">
