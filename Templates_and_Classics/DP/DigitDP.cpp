@@ -1,50 +1,59 @@
 /*
-
-How many numbers x are there in the range a to b, where the digit d occurs exactly k times in x
-
-use digit DP
-
+	
+   	number of integers in range [n, m] with exactly k d digits
 */
-
 
 #include<bits/stdc++.h>
-/*
-
-do complexity analysis
-
-*/
-
-#define int long long
 using namespace std;
+#define int long long
 
-int dp[19][19][2];
-/// dp[p][c][f] = Number of valid numbers <= b FROM this state
-/// p = current position
-/// c = number of times we have placed the digit d so far
-/// s = the number we are building has already become smaller than b?
+const int max_num_digits = 100;
+int dp[max_num_digits][max_num_digits][2];
+int n, m, k, d;
 
-string b; char d; int k;
-int ops=0;
-int f(int pos=0, int cnt=0, bool s=0){
-       ops++;
+void reset(){
+	for (int i = 0; i < 100; i++){
+		for (int j = 0; j < 100; j++){
+			dp[i][j][0] = -1;
+			dp[i][j][1] = -1;
+		}
+	}
+}
 
-       if(cnt>k) return 0;
-       if(pos==b.size()) return(cnt==k);
-       if(dp[pos][cnt][s] != -1) return dp[pos][cnt][s];
-
-
-       char limit=(s==false ? b[pos] : '9');
-       int sum=0;
-       for(char i='0'; i<=limit; i++)
-              sum += f(pos+1, cnt+(i==d), (i<b[pos]) || s);
-
-       dp[pos][cnt][s]=sum;
+int calls = 0;
+int f(int c, int x = 0, int y = 0, bool z = 0){ // range [0, c] with state [x][y][z]
+	if (dp[x][y][z] != -1){ // memoization
+		return dp[x][y][z];
+	}
+	calls++;
+	dp[x][y][z] = (y == k);
+	if (x == to_string(c).length()){
+		return dp[x][y][z];
+	}
+	int limit = 9;
+	if (!z){ // if the number being formed CAN exceed c
+		limit = to_string(c)[x] - '0';
+	}
+	// now setting the xth digit
+	dp[x][y][z] = 0; // going to permanently set dp[x][y][z] now
+	for (int xth_digit = 0; xth_digit <= limit; xth_digit++){
+		if (z){
+			dp[x][y][z] += f(c, x + 1, y + (xth_digit == d), 1);
+		}
+		else{
+			dp[x][y][z] += f(c, x + 1, y + (xth_digit == d), xth_digit < limit);
+		}
+	}
+	return dp[x][y][z];
 }
 
 signed main(){
-       cin.tie(0)->sync_with_stdio(0);
-       memset(dp, -1, sizeof(dp));
-       b="111"; d='1'; k=2; // how many integers in range [0, 111] have exactly two 1's (3: 11, 101, 110)
-       cout<<f()<<endl;
-       cout<<ops<<endl;
+	reset();
+	cin >> n >> m >> k >> d;
+//	n = 0; m = 5e18, k = 1, d = 5;
+	int total = f(m);
+	//cout << "total is " << total << endl;
+	reset();
+	cout << total - f(n - 1) << endl;
+	// cout << "calls is " << calls << endl;
 }
