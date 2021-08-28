@@ -1,3 +1,4 @@
+# try to replace ([^\+\-*\/=:\?><\|!\^&%\s]+) with (\w+)
 import sys
 import regex as re
 
