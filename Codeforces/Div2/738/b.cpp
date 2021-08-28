@@ -1,8 +1,3 @@
-/* 
-	author: ar492 
-	created: 07/31/2021 at 20:58:44
-*/
-
 #include<bits/stdc++.h>
 #define all(X) (X).begin(),(X).end()
 #define sz(X) ((int)(X.size()))

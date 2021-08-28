@@ -1,6 +1,6 @@
 /* 
 	author: ar492 
-	created: 07/31/2021 at 20:58:44
+	created: 08/01/2021 at 10:33:49
 */
 
 #include<bits/stdc++.h>
@@ -14,5 +14,9 @@ using namespace std;
 signed main(){
 	cin.tie(0)->sync_with_stdio(0); cin.exceptions(ios_base::failbit);
 	
-	
+	int t; cin >> t;
+	while (t--){
+		int p; cin >> p;
+		cout << 2 << " " << p - 1 << endl;
+	}
 }

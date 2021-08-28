@@ -1,3 +1,4 @@
+
 #include<bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -35,41 +36,33 @@ struct Matrix{
 			for (int j = 0; j < other.c; j++){
 				int sum = 0;
 				for (int k = 0; k < c; k++)
-					sum = (sum + (m[i][k] * other.m[k][j]) % mod) % mod;
+					sum = (sum + (m[i][k] * other.m[k][j])%mod) % mod;
 				prod.m[i][j] = sum;
 			}
 		}
 		return prod;
 	}
 	void expo(int p){
-		assert(r == c);
+		assert(r==c);
 		Matrix res(m);
-		loop(i, r) loop(j, c) res.m[i][j] = (i == j);
+		loop(i, r) loop(j, c) res.m[i][j]=(i==j);
 		while (p){
-			if (p & 1) res = res * ( * this);
+			if (p & 1) res = res * (*this);
 			p >>= 1LL;
-			( * this) = ( * this) * ( * this);
+			(*this)=(*this)*(*this);
 		}
-		( * this) = res;
-	}
-	void print(){
-		for (int i = 0; i < r; i++){
-			for (int j = 0; j < c; j++){
-				cout << m[i][j] << " ";
-			}cout << endl;
-		}
+		(*this)=res;
 	}
 };
 
 signed main(){
-	Matrix m({{0, 1}, {1, 1}});	
-	int n; cin >> n;
-	if(n < 3){
-		if(n == 0) cout << 0 << endl;
-		else if(n <= 2) cout << 1 << endl;
-		else cout << 2 << endl;
-		return 0;
+	int n, m, k; cin >> n >> m >> k;
+	Matrix adj(n, n);
+	while(m--){
+		int u, v; cin >> u >> v; 
+		u--; v--;
+		adj.m[u][v]++;
 	}
-	m.expo(n);
-	cout << m.m[0][1] << endl;
+	adj.expo(k);
+	cout << adj.m[0][n - 1] << endl;
 }

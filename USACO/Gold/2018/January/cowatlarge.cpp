@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#nclude<bits/stdc++.h>
 using namespace std;
 
 const int sz=1e5+1;

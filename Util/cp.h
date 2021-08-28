@@ -33,20 +33,20 @@ using namespace std;
 
 
 bool file_cmp(string file1, string file2){
-       ifstream in1(file1); ifstream in2(file2);
-       vector<char> input1, input2;
-       char c;
-       while(in1>>c) input1.emplace_back(c);
-       while(in2>>c) input2.emplace_back(c);
-       return(input1==input2);
+	ifstream in1(file1); ifstream in2(file2);
+	vector<char> input1, input2;
+	char c;
+	while (in1 >> c) input1.emplace_back(c);
+	while (in2 >> c) input2.emplace_back(c);
+	return(input1 == input2);
 }
 /*
 
 
 #ifdef LOCAL
-       #include "C:\\Users\\gbpol\\Desktop\\Useful\\cp.h"
+	#include "C:\\Users\\gbpol\\Desktop\\Useful\\cp.h"
 #else
-       #include <bits/stdc++.h>
+	#include <bits/stdc++.h>
 #endif
 
 

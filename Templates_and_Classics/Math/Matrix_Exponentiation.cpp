@@ -31,26 +31,21 @@ struct Matrix{
 	Matrix operator * (const Matrix & other){//(r1, c1) x (r2, c2) = O(r1 r2 c2) = O(r1 c1 c2), c1 = r2
 		assert(c == other.r);
 		Matrix prod(r, other.c);
-		for (int i = 0; i < r; i++){
-			for (int j = 0; j < other.c; j++){
-				int sum = 0;
+		for (int i = 0; i < r; i++)
+			for (int j = 0; j < other.c; j++)
 				for (int k = 0; k < c; k++)
-					sum = (sum + (m[i][k] * other.m[k][j]) % mod) % mod;
-				prod.m[i][j] = sum;
-			}
-		}
+					prod.m[i][j] = (prod.m[i][j] + (m[i][k] * other.m[k][j])%mod) % mod;
 		return prod;
 	}
 	void expo(int p){
-		assert(r == c);
-		Matrix res(m);
-		loop(i, r) loop(j, c) res.m[i][j] = (i == j);
+		assert(r==c);	Matrix res(m);
+		loop(i, r) loop(j, c) res.m[i][j]=(i==j);
 		while (p){
-			if (p & 1) res = res * ( * this);
+			if (p & 1) res = res * (*this);
 			p >>= 1LL;
-			( * this) = ( * this) * ( * this);
+			(*this)=(*this)*(*this);
 		}
-		( * this) = res;
+		(*this)=res;
 	}
 	void print(){
 		for (int i = 0; i < r; i++){
@@ -60,16 +55,9 @@ struct Matrix{
 		}
 	}
 };
-
 signed main(){
-	Matrix m({{0, 1}, {1, 1}});	
-	int n; cin >> n;
-	if(n < 3){
-		if(n == 0) cout << 0 << endl;
-		else if(n <= 2) cout << 1 << endl;
-		else cout << 2 << endl;
-		return 0;
-	}
-	m.expo(n);
-	cout << m.m[0][1] << endl;
+	Matrix a({ {3, 2, 1, 5}, { 9, 1, 3, 0} });
+	Matrix b({ {2, 9, 0}, {1, 3, 5}, {2, 4, 7}, {8, 1, 5}});
+	a = a * b;
+	a.print();
 }

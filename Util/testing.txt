@@ -1,0 +1,50 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+#define int long long
+
+signed main(){
+	vector < vector < pair < pair < long long, int > , map < int, vector < array < string, 2 >>>> ;
+	for(int i = 0; i < 10; i ++ ){
+		for(int j = 0; j < 10; j ++ ){
+
+		}
+	}
+	int j = 1;
+	while(j -- ){
+		for(int i = 0; i < 10; i ++ ){
+			j <<= 1 + 2 ^ 4;
+			j ^= 3 & 2;
+			
+		}
+	}
+}
+
+
+- consider comments
+- #includes
+- stuff inside couts cout << "1 + 1" << endl;
+- file paths
+
+for(int i = 0; i < 10; i ++ ){
+	
+}
+
+#ifdef LOCAL
+	#include "C:\\Users\\gbpol\\Desktop\\Useful\\cp.h"
+#else
+	#include <bits/stdc++.h>
+#endif
+
+\s * ([ */+- ] ?= )\s*
+^( ?! \s | \w).*
+
+
+ans [^\w\s#"\\\(\)\{\}:\.]
+
+[^\w\s#"\\\(\)\{\}:\.]\[\]
+
+[\w] + \s * [\ + \ -* \ /= \ : \ ?>< \ |! \ ^&% ] + \s * [\w]+
+[\w] + \s * [\ + \ -* \ /=: \ ?>< \ |! \ ^&% ] + \s * [\w]+
+
+\w + \s * [\ + \ -* \ /=: \ ?>< \ |! \ ^&% ] + \s * \w+
