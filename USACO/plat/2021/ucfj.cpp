@@ -1,3 +1,20 @@
+/*
+
+   array of length n with 1...n
+   count number of subarrays such that there are three unique values with left nad right values of the subarray being two of them. different subarrays are considered distinct if any of their 3 leaders or the location [l,r]
+   is dif
+   track closest left and right locations for each value
+   can do PIE. ans=total - C(left repeated, right not repeated) - C(left repeated, right not repeated) - C(both repeated)
+   - C(both are leaders but there is no middle leader)
+   difficult to find, so compensate with more complicated pie but nicer terms
+   ans1= C(left repeated) + C(right repeated) - C(both repeated) = number of subarrays with at least one of (left, right) repeated
+   ans=total - ans1 - C(mid repeated with l,r both unique ... do this with 2p or something)
+   
+
+*/
+
+
+
 
 #include<bits/stdc++.h>
 #define int long long
@@ -64,6 +81,7 @@ count number of points in bit2 >=j
 it suffices to subtract overlaps while counting left, then count right
 
 */
+
 
 
 

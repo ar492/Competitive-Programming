@@ -27,9 +27,9 @@ int32_t main(){
 		int t = 1e4;
 		out << t << endl;
 		while (t--){
-			int n = rand(1e8, 1e9);
-			int k = rand(1, 10);
-			out << n << " " << k << endl;
+			int x = rand(2, 1e8) * 2;
+			int y = rand(2, 1e8) * 2;
+			out << x << " " << y << endl;
 		}
 
 		
@@ -39,26 +39,10 @@ int32_t main(){
 		// code to benchmark
 
 
-		system("1560F1 < in.txt > out1.txt");
+		system("1604D < in.txt > out1.txt");
 		auto end = std::chrono::high_resolution_clock::now();
 		std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(end-begin).count() << "ns for mine" << std::endl;
-		//		cout << "done with first " << endl;
-		auto begin2 = std::chrono::high_resolution_clock::now();
-		system("correct < in.txt > out2.txt");
-		auto end2 = std::chrono::high_resolution_clock::now();
-		//cout << "done with second" << endl;
-		std::cout << std::chrono::duration_cast<std::chrono::nanoseconds>(end2-begin2).count() << "ns for correct" << std::endl;
-              ifstream in1("out1.txt"), in2("out2.txt");
-              bool bad=0;
 
-              
-              if(!file_cmp("out1.txt", "out2.txt")) bad=true;
-              in1.close(); in2.close();
-
-              if (bad){
-                     cout << "bad\n";
-                     return 0;
-              }
        }
 }
 

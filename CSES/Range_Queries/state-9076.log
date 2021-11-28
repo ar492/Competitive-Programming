@@ -1,0 +1,41 @@
+[ERROR Sep  5 00:59:20.180531900, defaults.go:149] Could not load configuration: Failed to load configuration.
+
+Stacktrace: D:/a/cli/cli/internal/logging/logging.go:github.com/ActiveState/cli/internal/logging.Error:258
+D:/a/cli/cli/internal/logging/defaults.go:github.com/ActiveState/cli/internal/logging.init.0:149
+C:/hostedtoolcache/windows/go/1.15.15/x64/src/runtime/proc.go:runtime.doInit:5652
+C:/hostedtoolcache/windows/go/1.15.15/x64/src/runtime/proc.go:runtime.doInit:5647
+C:/hostedtoolcache/windows/go/1.15.15/x64/src/runtime/proc.go:runtime.doInit:5647
+C:/hostedtoolcache/windows/go/1.15.15/x64/src/runtime/proc.go:runtime.main:191
+C:/hostedtoolcache/windows/go/1.15.15/x64/src/runtime/asm_amd64.s:runtime.goexit:1374
+
+[DEBUG Sep  5 00:59:20.184530600, defaults.go:178] Args: [C:\Users\gbpol\AppData\Roaming\ActiveState\bin\state.exe show --output editor]
+[DEBUG Sep  5 00:59:20.185519200, locale.go:34] Init
+[DEBUG Sep  5 00:59:20.247357300, secrets.go:35] Gcloud Secretmanager failed to initialize (ignore if you're not trying to use gcloud): google: could not find default credentials. See https://developers.google.com/accounts/docs/application-default-credentials for more information.
+[DEBUG Sep  5 00:59:20.255332600, output.go:52] Requested outputer for editor
+[DEBUG Sep  5 00:59:20.256329200, output.go:69] Using Editor outputer
+[DEBUG Sep  5 00:59:20.256329200, main.go:120] ConfigPath: C:\Users\gbpol\AppData\Roaming\activestate\cli-release
+[DEBUG Sep  5 00:59:20.256329200, main.go:121] CachePath: C:\Users\gbpol\AppData\Local\activestate
+[DEBUG Sep  5 00:59:20.257326200, subshell.go:103] Detected SHELL: cmd
+[DEBUG Sep  5 00:59:20.257326200, subshell.go:135] Using binary: C:\Windows\System32\cmd.exe
+[DEBUG Sep  5 00:59:20.258323400, secrets.go:61] secrets-api scheme=https host=platform.activestate.com base_path=/api/secrets/v1
+[DEBUG Sep  5 00:59:20.261316100, secrets.go:61] secrets-api scheme=https host=platform.activestate.com base_path=/api/secrets/v1
+[DEBUG Sep  5 00:59:20.263310300, autoupdate.go:28] Not running auto updates
+[DEBUG Sep  5 00:59:20.263310300, deprecation.go:198] Using cached deprecation information
+[DEBUG Sep  5 00:59:20.278269700, analytics.go:273] Sending Google Analytics event with: run-command, show, 
+[DEBUG Sep  5 00:59:20.278269700, cmdcall.go:47] cmdcall
+[DEBUG Sep  5 00:59:20.278269700, analytics.go:296] Sending S3 pixel event with: run-command, show, 
+[DEBUG Sep  5 00:59:20.278269700, show.go:131] Execute show
+[DEBUG Sep  5 00:59:20.278269700, analytics.go:314] Using S3 pixel URL: %!(EXTRA string=https://state-tool.s3.amazonaws.com/pixel?x-action=show&x-category=run-command&x-custom10=&x-custom11=&x-custom12=98a691e4-c1b8-4245-a905-b0e8fc2e2c62&x-custom13=&x-custom2=0.28.6-SHA8847c88&x-custom3=release&x-custom4=&x-custom5=editor&x-custom6=Windows&x-custom7=10.0.19043&x-custom8=&x-custom9=8c9da86a-1cf5-44de-b19c-25dcc41127a9&x-label=)
+[DEBUG Sep  5 00:59:20.278269700, analytics.go:273] Sending Google Analytics event with: command-exit, show, 1
+[DEBUG Sep  5 00:59:20.278269700, analytics.go:296] Sending S3 pixel event with: command-exit, show, 1
+[DEBUG Sep  5 00:59:20.278269700, analytics.go:314] Using S3 pixel URL: %!(EXTRA string=https://state-tool.s3.amazonaws.com/pixel?x-action=show&x-category=command-exit&x-custom10=&x-custom11=&x-custom12=98a691e4-c1b8-4245-a905-b0e8fc2e2c62&x-custom13=&x-custom2=0.28.6-SHA8847c88&x-custom3=release&x-custom4=&x-custom5=editor&x-custom6=Windows&x-custom7=10.0.19043&x-custom8=&x-custom9=8c9da86a-1cf5-44de-b19c-25dcc41127a9&x-label=1)
+[DEBUG Sep  5 00:59:20.441833200, errors.go:97] Returning input error:
+To run this command you need to be in an existing project. You can create a new project with [ACTIONABLE]state init[/RESET] or run this command from a directory that is in an existing project. You can also mark a project as the default to use by running [ACTIONABLE]`state activate --default`[/RESET] inside your project directory.
+Created at:
+D:/a/cli/cli/internal/runners/show/show.go:github.com/ActiveState/cli/internal/runners/show.(*Show).Run:164
+D:/a/cli/cli/cmd/state/internal/cmdtree/show.go:github.com/ActiveState/cli/cmd/state/internal/cmdtree.newShowCommand.func1:30
+D:/a/cli/cli/cmd/state/internal/cmdtree/cmdtree.go:github.com/ActiveState/cli/cmd/state/internal/cmdtree.interceptAddHeadlessNotify.func1.1:329
+D:/a/cli/cli/cmd/state/internal/cmdtree/intercepts/cmdcall/cmdcall.go:github.com/ActiveState/cli/cmd/state/internal/cmdtree/intercepts/cmdcall.(*CmdCall).InterceptExec.func1:33
+D:/a/cli/cli/internal/captain/command.go:github.com/ActiveState/cli/internal/captain.(*Command).runner.func1:531
+D:/a/cli/cli/internal/sighandler/awaiting.go:github.com/ActiveState/cli/internal/sighandler.(*sigHandler).WaitForFunc.func1:46
+C:/hostedtoolcache/windows/go/1.15.15/x64/src/runtime/asm_amd64.s:runtime.goexit:1374
