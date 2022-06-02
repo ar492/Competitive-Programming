@@ -21,7 +21,7 @@ namespace st{
 		
 	}
 	void query(int l, int r){ // RS or range min or whatever
-		
+			
 	}
 }
 using namespace st;
